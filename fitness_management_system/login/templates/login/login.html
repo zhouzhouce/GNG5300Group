@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Login</title>
+    {% load static %}
+    <!--  Bootstrap CSS  -->
+    <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container" style="margin: 134px auto;">
+        <div class="row">
+            <div class="col-8">
+                <!-- left login img -->
+                <img src="{% static "images/login_img.png" %}" alt="">
+            </div>
+            <div class="col-4">
+                <p style="color: #667085;">Please fill your detail to access your account. We'll create a new account if the email does not exist.</p>
+                <form>
+                    <!--email-->
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Email</label>
+                        <input type="email" class="form-control" placeholder="Please enter your Email Address" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    </div>
+                    <!-- password-->
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input type="password" class="form-control" placeholder="Please enter your password" id="exampleInputPassword1">
+                    </div>
+                    <!-- remember me & forgot password-->
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Remember me</label>
+                        <a href="#" style="margin-left:60px; color:#2D74FF;">Forgot Your Password?</a>
+                    </div>
+                    <!-- submit button -->
+                    <button type="submit" class="btn btn-primary btn-block">Sign in/Sign up</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.15.0/umd/popper.js"></script>
+    <script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
