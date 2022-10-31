@@ -1,3 +1,7 @@
 virtualenv
 django
 djangorestframework
+
+mysql client
+PyMySQL
+cryptography
