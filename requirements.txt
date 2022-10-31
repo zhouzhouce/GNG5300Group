@@ -1,3 +1,16 @@
 virtualenv
 django
 djangorestframework
+
+MySQL
+
+#install python driver for mysql
+pip install mysql client
+
+#configure environment variables (if needed)
+vi ~/.bash_profile (press i to edit it, esc to quit edit mode, type “:wq” to write and quit the file)
+export PATH=${PATH}:/usr/local/mysql/bin/
+
+#install related python library (if needed)
+pip install PyMySQL
+pip install cryptography
