@@ -22,7 +22,7 @@ CREATE USER 'test'@'localhost' IDENTIFIED BY 'secret_1234';
 
 ### Grant all privileges to the newly created user
 ```
-GRANT ALL PRIVILEGES ON `mytestdb` . * TO 'test'@'localhost';
+GRANT ALL PRIVILEGES ON `fitness_testdb` . * TO 'test'@'localhost';
 FLUSH PRIVILEGES; 
 ```
 
