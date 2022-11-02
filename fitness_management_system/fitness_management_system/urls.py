@@ -23,4 +23,5 @@ from login import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('login/', views.login),
+    path('verify/', views.verifyApi)
 ]
