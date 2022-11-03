@@ -7,8 +7,17 @@ from login import models
 
 
 def login(request):
-    pass
-    return render(request, 'login/login.html')
+    if request.method == 'GET':
+        return render(request, "login/login.html")
+    if request.method == 'POST':
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+        user_obj = models.User.objects.filter(email=email, password=password)
+        if user_obj:
+            # return JsonResponse({'code': 200, 'message': "succeed"})
+            return render(request, "login/index.html")
+        else:
+            return render(request, "login/login.html")
 
 
 @api_view(['GET', 'POST'])
