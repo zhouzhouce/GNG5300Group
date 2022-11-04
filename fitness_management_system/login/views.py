@@ -6,7 +6,7 @@ from rest_framework.decorators import api_view
 from login import models
 
 
-def login(request):
+def loginPage(request):
     if request.method == 'GET':
         return render(request, "login/login.html")
     if request.method == 'POST':
