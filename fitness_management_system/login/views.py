@@ -15,7 +15,7 @@ def loginPage(request):
         email = request.POST.get('email')
         password = request.POST.get('password')
 
-        user_obj = models.User.objects.filter(email=email)
+        user_obj = models.User.objects.get(email=email)
 
         if not user_obj:
             models.User.objects.create(email=email, password=password)
@@ -52,9 +52,9 @@ def select(request):
     if request.method == "POST":
         print(request.POST.get("Age"))
         # print(request.POST.get("password"))
-        return render(request, 'select.html')
+        return render(request, 'login/select.html')
     if request.method == "GET":
-        return render(request, 'select.html')
+        return render(request, 'login/select.html')
 
 
 def homepage(request):
