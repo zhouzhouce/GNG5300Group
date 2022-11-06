@@ -47,6 +47,7 @@ def verifyApi(request):
             return JsonResponse({'code': 200, 'message': "succeed"})
         return JsonResponse({'code': 200})
 
+
 def select(request):
     if request.method == "POST":
         print(request.POST.get("Age"))
@@ -54,3 +55,8 @@ def select(request):
         return render(request, 'select.html')
     if request.method == "GET":
         return render(request, 'select.html')
+
+
+def homepage(request):
+    if request.method == 'GET':
+        return render(request, "login/homepage.html")
