@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Homepage</title>
+    {% load static %}
+    <!--  Bootstrap CSS  -->
+    <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container" style="width:1440px; margin: 134px auto; position: relative;">
+        <div class="row">
+            <form method="post">
+                {% csrf_token %}
+                <!-- Login button -->
+                <button type="submit" class="btn btn-primary btn-sm" style="position: absolute; right: -100px; top: -75px;"><img src="{% static 'images/profile.png' %}" alt="" width="20px" height="20px"> Log In</button>
+            </form>
+        </div>
+        <div class="row">    
+            <!--Text title and intro-->
+            <div class="col-4">
+                <h1 class="title valign-text-middle">
+                    <span style="color: #2c74ff;"> Workout Plans tailored to your goals</span></h1>
+                <p class="title valign-text-middle">
+                    <span style="color: #667085;"> No matter your fitness level, we can help you reach your goals faster. </span></p>
+                <p class="title valign-text-middle">
+                    <span style="color: #667085;"> Track a healthy life. Change your life. </span></p>
+            </div>
+            <!--Picture set-->
+            <div class="col-8 img-personrunning"> 
+                <img src="{% static 'images/homepage_personrunning.png' %}" alt="">
+            </div>
+        </div>
+        <!--Popular Plans-->
+        <div class="row">
+            <div class="popular-plans valign-text-middle">
+            <h2><span>Popular Plans</span></h2>
+            </div>
+        </div>
+        <div class="row" >
+            <div class="col-sm-4">
+                <img src="{% static 'images/relaxation.png' %}" alt="" style="width:310px"></div>
+            <div class="col-sm-4"> 
+                <img src="{% static 'images/muscular.png' %}" alt="" style="width:310px"> </div>
+            <div class="col-sm-4">
+                <img src="{% static 'images/flexibility.png' %}" alt="" style="width:310px"> </div>
+            <div class="rectangle"></div>
+            <div class="relaxation" id="3:829">Relaxation</div>
+        </div>
+    </div>
+
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.15.0/umd/popper.js"></script>
+    <script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</body>
+</html>

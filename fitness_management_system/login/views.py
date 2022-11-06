@@ -46,3 +46,7 @@ def verifyApi(request):
         if user_obj:
             return JsonResponse({'code': 200, 'message': "succeed"})
         return JsonResponse({'code': 200})
+
+def homepage(request):
+    if request.method == 'GET':
+        return render(request, "login/homepage.html")
