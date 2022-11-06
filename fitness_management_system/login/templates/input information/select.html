@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>select</title>
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<div class="center">
+    <h3 align="center">Fill in your data to get more detailed plan</h3>
+	</div>
+<style>
+.center {
+    padding: 80px;
+    height: 20px;
+    text-align: center;
+}
+
+            /*SELECT W/DOWN-ARROW*/
+            select
+            {
+               width                    : 240pt;
+               margin:10px;
+               height                   : 40pt;
+               line-height              : 40pt;
+               padding-right            : 20pt;
+               text-indent              : 8pt;
+               text-align               : left;
+               vertical-align           : middle;
+               border                   : 1px solid rgba(45, 116, 255, 0.54);
+               -moz-border-radius       : 16px;
+               -webkit-border-radius    : 16px;
+               border-radius            : 6px;
+               -webkit-appearance       : none;
+               -moz-appearance          : none;
+               appearance               : none;
+               font-family              : Roboto;
+               font-size                : 12pt;
+               font-weight              : 500;
+               color                    : rgba(72, 72, 72, 1);
+               cursor                   : pointer;
+               outline                  : none;
+            }
+
+
+            /*LABEL FOR SELECT*/
+            label{position: relative; display: inline-block;}
+
+
+            /*DOWNWARD ARROW (25bc)*/
+            label::after
+            {
+                margin:10px;
+                content                 : "\25BC";
+                position                : absolute;
+                top                     : 0;
+                right                   : 6px;
+                bottom                  : 0;
+                width                   : 20pt;
+                line-height             : 40pt;
+                vertical-align          : middle;
+                text-align              : center;
+                background              : #0;
+                color                   : rgba(94, 173, 255, 1);
+               -moz-border-radius       : 0 6px 6px 0;
+               -webkit-border-radius    : 0 6px 6px 0;
+                border-radius           : 0 6px 6px 0;
+                pointer-events          : none;
+            }
+
+	button {
+	margin:15px;
+    color: white;
+    background: #4C8FFB;
+    border: 1px #3079ED solid;
+    box-shadow: inset 0 1px 0 #80B0FB;
+    padding: 6px 20px;
+    border-radius: 4px;
+    font-weight: medium;
+    font-size: 14pt;
+    outline: none;
+}
+
+button:hover {
+    border: 1px #2F5BB7 solid;
+    box-shadow: 0 1px 1px #EAEAEA, inset 0 1px 0 #5A94F1;
+    background: #3F83F1;
+}
+
+
+
+
+
+</style>
+
+</head>
+<body>
+<form action="/test" method="post">{% csrf_token %}
+
+<div style="text-align:center">
+<label id="1">
+	<select name="Age"  title="Age">
+		<option selected>Age</option>
+		<option value="0-29">0-29</option>
+		<option value="30-40">30-40</option>
+		<option value="40-50">40-50</option>
+		<option value="older than 50">older than 50</option>
+		<option value="I prefer not to say">I prefer not to say</option>
+	</select>
+</label>
+
+<div style="text-align:center">
+<label id="1">
+	<select id="2" title="Gender">
+		<option selected>Gender</option>
+		<option value="1">Female</option>
+		<option value="2">Male</option>
+		<option value="5">I prefer not to say</option>
+	</select>
+</label>
+
+<div style="text-align:center">
+<label id="1">
+	<select id="2" title="Training level">
+		<option selected>Training level</option>
+		<option value="1">Entry level</option>
+		<option value="2">Medium</option>
+		<option value="3">High</option>
+	</select>
+</label>
+
+<div style="text-align:center">
+<label id="1">
+		<select id="2" title="Notification time">
+		<option selected>Notification time</option>
+		<option value="1">Every 7 AM</option>
+		<option value="2">Every 4 PM</option>
+		<option value="3">Every 8 PM</option>
+		<option value="4">None</option>
+	</select>
+</label>
+</div>
+
+
+
+<!--<div class="input-group mb-3">-->
+<!--  <div class="input-group-prepend">-->
+<!--    <label class="input-group-text" for="inputGroupSelect01">Options</label>-->
+<!--  </div>-->
+<!--  <select class="custom-select" id="inputGroupSelect01">-->
+<!--    <option selected>Choose...</option>-->
+<!--    <option value="1">One</option>-->
+<!--    <option value="2">Two</option>-->
+<!--    <option value="3">Three</option>-->
+<!--  </select>-->
+<!--</div>-->
+<div style="text-align:center">
+<!--<input type="submit" value="Next Step">-->
+</div>
+<button type="submit">Next Step</button>
+</form>
+</body>
+</html>
