@@ -15,7 +15,7 @@ def loginPage(request):
         email = request.POST.get('email')
         password = request.POST.get('password')
 
-        user_obj = models.User.objects.get(email=email)
+        user_obj = models.User.objects.filter(email=email)
 
         if not user_obj:
             models.User.objects.create(email=email, password=password)
