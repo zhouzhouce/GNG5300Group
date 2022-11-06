@@ -60,3 +60,5 @@ def select(request):
 def homepage(request):
     if request.method == 'GET':
         return render(request, "login/homepage.html")
+    if request.method == 'POST':
+        return redirect('/login/')
