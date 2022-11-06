@@ -15,18 +15,24 @@ def loginPage(request):
         email = request.POST.get('email')
         password = request.POST.get('password')
 
-        try:
-            user_obj = models.User.object.get(email=email)
-        except:
-            messages.error(request, "User doesn't exist.")
+        user_obj = models.User.objects.filter(email=email)
 
-        user_obj = models.User.objects.filter(email=email, password=password)
-        if user_obj:
-            return render(request, "login/index.html", context=context)
-            # return JsonResponse({'code': 200, 'message': "succeed"})
+        if not user_obj:
+            models.User.objects.create(email=email, password=password)
+            messages.info(request, "new user has been registered.")
+            return redirect('/index/')
         else:
-            messages.error(request, "Username OR Password is not correct.")
-            return render(request, "login/login.html", context=context)
+            user_obj = models.User.objects.filter(email=email, password=password)
+            if user_obj:
+                return redirect('/index/')
+            else:
+                messages.error(request, "Username OR Password is not correct.")
+                return render(request, "login/login.html", context=context)
+
+
+def index(request):
+    pass
+    return render(request, 'login/index.html')
 
 
 @api_view(['GET', 'POST'])
