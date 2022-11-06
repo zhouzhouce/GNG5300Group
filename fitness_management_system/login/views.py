@@ -52,9 +52,9 @@ def select(request):
     if request.method == "POST":
         print(request.POST.get("Age"))
         # print(request.POST.get("password"))
-        return render(request, 'select.html')
+        return render(request,'select.html')
     if request.method == "GET":
-        return render(request, 'select.html')
+        return render(request,'select.html')
 
 
 def homepage(request):
