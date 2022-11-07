@@ -40,3 +40,6 @@ def verifyApi(request):
         if user_obj:
             return JsonResponse({'code': 200, 'message': "succeed"})
         return JsonResponse({'code': 200})
+
+
+

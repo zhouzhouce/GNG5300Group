@@ -36,3 +36,39 @@ pip install mysql client
 pip install PyMySQL
 pip install cryptography
 ```
+
+## Cerely
+### Install redis
+https://redis.io/docs/getting-started/
+
+### Install required packages
+```
+pip install celery
+pip install django-celery-results
+pip install django-celery-beat
+```
+
+### Migrate for first use to create all the models related to celery and celery-beat
+```
+python manage.py migrate
+```
+
+### Run redis
+```
+redis-server
+```
+
+### Start celery in new terminal
+```
+celery -A fitness_management_system worker --pool=solo -l info
+```
+
+### Start celery beat in new terminal
+```
+celery -A fitness_management_system beat -l INFO
+```
+
+### Run the below command if you want to kill the workers
+```
+celery -A fitness_management_system purge
+```
