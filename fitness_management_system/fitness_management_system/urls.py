@@ -24,5 +24,4 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('login/', views.loginPage),
     path('index/', views.index),
-    path('verify/', views.verifyApi),
 ]
