@@ -32,16 +32,17 @@ def index(request):
     return render(request, 'login/index.html')
 
 
-# @api_view(['GET', 'POST'])
-# def verifyApi(request):
-#     if request.method == 'GET':
-#         return JsonResponse({'code': 500, 'message': "please input your account and password"})
-#     if request.method == 'POST':
-#         username = request.POST.get('username')
-#         password = request.POST.get('password')
-#         user_obj = models.User.objects.filter(email=username, password=password)
-#         if user_obj:
-#             return JsonResponse({'code': 200, 'message': "succeed"})
-#         return JsonResponse({'code': 200})
+def select(request):
+    if request.method == "POST":
+        print(request.POST.get("Age"))
+        # print(request.POST.get("password"))
+        return render(request, 'login/select.html')
+    if request.method == "GET":
+        return render(request, 'login/select.html')
 
 
+def homepage(request):
+    if request.method == 'GET':
+        return render(request, "login/homepage.html")
+    if request.method == 'POST':
+        return redirect('/login/')

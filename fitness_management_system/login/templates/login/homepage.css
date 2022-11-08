@@ -1,0 +1,72 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,500,600,900|Mulish:700");
+
+.title{
+    color: #2c74ff;
+    height: 100px;
+    left: 0;
+    letter-spacing: 0.3px;
+    line-height: 50px;
+    position: absolute;
+    top: 300px;
+    width: 548px;
+}
+
+.valign-text-valign{
+    display: grid;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.img-personrunning{
+    height: 406px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 819px;
+    float: right;
+}
+
+.button_profile{
+    float: right;
+    width: 10px;
+    height: 5px;
+
+}
+
+.popular-plans{
+    color: #484848;
+    align-self:flex-start;
+    font-size: medium;
+    font-weight: 600;
+    height: 80px;
+    letter-spacing: 0.3px;
+    line-height: 50px;
+    margin-left: 88px;
+    margin-top: 250px;
+    white-space: nowrap;
+}
+
+.rectangle{
+    background-color: rgba(242, 242, 242, 0.5699999928);
+    height: 6.7rem;
+    left: 0;
+    position: absolute;
+    top: 39.2rem;
+    width: 34.1rem;
+}
+
+.relaxation{
+    color: #ffffff;
+    display: flex;
+    font-family: Roboto, 'Source Sans Pro';
+    font-size: 3.6rem;
+    font-weight: 500;
+    height: 5rem;
+    left: 8.4rem;
+    letter-spacing: 0.03rem;
+    line-height: 1.3888888889;
+    position: absolute;
+    top: 40.2rem;
+    white-space: nowrap;
+    width: 17.3rem;
+}
