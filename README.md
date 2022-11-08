@@ -72,3 +72,10 @@ celery -A fitness_management_system beat -l INFO
 ```
 celery -A fitness_management_system purge
 ```
+
+
+## Test
+### Grant the privileges on test db before creating any test case in test.py
+```
+GRANT ALL PRIVILEGES ON test_fitness_testdb.* TO 'test'@'localhost';
+```
