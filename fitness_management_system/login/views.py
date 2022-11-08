@@ -1,10 +1,7 @@
-import json
-from django.http import JsonResponse
-from django.shortcuts import render, HttpResponse, redirect
+from django.shortcuts import render
 from django.contrib import messages
-from django.contrib.auth import authenticate, login, logout
-from rest_framework.decorators import api_view
-from login import models
+from django.shortcuts import redirect
+from . import models
 
 
 def loginPage(request):
@@ -33,19 +30,6 @@ def loginPage(request):
 def index(request):
     pass
     return render(request, 'login/index.html')
-
-
-@api_view(['GET', 'POST'])
-def verifyApi(request):
-    if request.method == 'GET':
-        return JsonResponse({'code': 500, 'message': "please input your account and password"})
-    if request.method == 'POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-        user_obj = models.User.objects.filter(email=username, password=password)
-        if user_obj:
-            return JsonResponse({'code': 200, 'message': "succeed"})
-        return JsonResponse({'code': 200})
 
 
 def select(request):
