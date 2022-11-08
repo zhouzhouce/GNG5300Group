@@ -16,6 +16,31 @@
     text-align: center;
 }
 
+input
+{
+width                    : 240pt;
+margin:10px;
+height                   : 40pt;
+line-height              : 40pt;
+padding-right            : 20pt;
+text-indent              : 8pt;
+text-align               : left;
+vertical-align           : middle;
+border                   : 1px solid rgba(45, 116, 255, 0.54);
+-moz-border-radius       : 16px;
+-webkit-border-radius    : 16px;
+border-radius            : 6px;
+-webkit-appearance       : none;
+-moz-appearance          : none;
+appearance               : none;
+font-family              : Roboto;
+font-size                : 12pt;
+font-weight              : 500;
+color                    : rgba(72, 72, 72, 1);
+cursor                   : pointer;
+outline                  : none;
+}
+
             /*SELECT W/DOWN-ARROW*/
             select
             {
@@ -96,10 +121,13 @@ button:hover {
 
 </head>
 <body>
-<form action="/test" method="post">{% csrf_token %}
+<form action="" method="post">{% csrf_token %}
 
 <div style="text-align:center">
-<label id="1">
+	<input type=text" placeholder="Please enter your user name" required>
+</div>
+
+<div style="text-align:center">
 	<select name="Age"  title="Age" required>
 		<option selected disabled hidden value="">Age</option>
 		<option value="0-29">0-29</option>
@@ -108,7 +136,7 @@ button:hover {
 		<option value="older than 50">older than 50</option>
 		<option value="I prefer not to say">I prefer not to say</option>
 	</select>
-</label>
+
 
 <div style="text-align:center">
 <label id="1">

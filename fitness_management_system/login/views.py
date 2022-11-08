@@ -51,8 +51,11 @@ def verifyApi(request):
 def select(request):
     if request.method == "POST":
         print(request.POST.get("Age"))
+        print(request.POST.get("Gender"))
+        print(request.POST.get("Age"))
+        print(request.POST.get("Gender"))
         # print(request.POST.get("password"))
-        return render(request, 'login/select.html')
+        return render(request, 'login/index.html')
     if request.method == "GET":
         return render(request, 'login/select.html')
 
