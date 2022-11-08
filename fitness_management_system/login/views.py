@@ -3,6 +3,7 @@ from django.contrib import messages
 from django.shortcuts import redirect
 from . import models
 
+
 def loginPage(request):
     context = {}
     if request.method == 'GET':
@@ -42,3 +43,5 @@ def index(request):
 #         if user_obj:
 #             return JsonResponse({'code': 200, 'message': "succeed"})
 #         return JsonResponse({'code': 200})
+
+
