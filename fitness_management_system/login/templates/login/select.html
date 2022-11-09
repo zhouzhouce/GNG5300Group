@@ -30,8 +30,6 @@ border                   : 1px solid rgba(45, 116, 255, 0.54);
 -moz-border-radius       : 16px;
 -webkit-border-radius    : 16px;
 border-radius            : 6px;
--webkit-appearance       : none;
--moz-appearance          : none;
 appearance               : none;
 font-family              : Roboto;
 font-size                : 12pt;
@@ -124,10 +122,11 @@ button:hover {
 <form action="" method="post">{% csrf_token %}
 
 <div style="text-align:center">
-	<input type=text" placeholder="Please enter your user name" required>
+	<input type="text" style="cursor: text;" autofocus="autofocus" placeholder="Please enter your user name" required>
 </div>
 
 <div style="text-align:center">
+	<label id="1">
 	<select name="Age"  title="Age" required>
 		<option selected disabled hidden value="">Age</option>
 		<option value="0-29">0-29</option>
@@ -136,11 +135,11 @@ button:hover {
 		<option value="older than 50">older than 50</option>
 		<option value="I prefer not to say">I prefer not to say</option>
 	</select>
-
+</label>
 
 <div style="text-align:center">
 <label id="1">
-	<select id="2" title="Gender" required>
+	<select name="Gender" required>
 		<option selected disabled hidden value="">Gender</option>
 		<option value="Female">Female</option>
 		<option value="Male">Male</option>
@@ -150,25 +149,25 @@ button:hover {
 
 <div style="text-align:center">
 <label id="1">
-	<select id="2" title="Training level" required>
+	<select name="Training level" required>
 		<option selected disabled hidden value="">Training level</option>
-		<option value="Entry level">Entry level</option>
+		<option value="Entry">Entry</option>
 		<option value="Medium">Medium</option>
 		<option value="High">High</option>
 	</select>
 </label>
 
-<div style="text-align:center">
-<label id="1">
-		<select id="2" title="Notification time" required>
-		<option selected disabled hidden value="">Notification time</option>
-		<option value="1">Every 7 AM</option>
-		<option value="2">Every 4 PM</option>
-		<option value="3">Every 8 PM</option>
-		<option value="4">None</option>
-	</select>
-</label>
-</div>
+<!--<div style="text-align:center">-->
+<!--<label id="1">-->
+<!--		<select name="Notification time" required>-->
+<!--		<option selected disabled hidden value="">Notification time</option>-->
+<!--		<option value="1">Every 7 AM</option>-->
+<!--		<option value="2">Every 4 PM</option>-->
+<!--		<option value="3">Every 8 PM</option>-->
+<!--		<option value="4">None</option>-->
+<!--	</select>-->
+<!--</label>-->
+<!--</div>-->
 
 
 
