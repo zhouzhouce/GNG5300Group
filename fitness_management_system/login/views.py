@@ -43,13 +43,11 @@ def index(request):
 def select(request):
     context = {}
     if request.method == "POST":
-        age = request.POST.get('age')
-        gender = request.POST.get('gender')
-        level = request.POST.get('level')
-        notification_time = request.POST.get('notification_time')
-        user = request.user
-        # models.UserProfile.objects.create(age=age, name=user)
-
+        print(request.POST.get("Age"))
+        print(request.POST.get("Gender"))
+        print(request.POST.get("Age"))
+        print(request.POST.get("Gender"))
+        # print(request.POST.get("password"))
         return render(request, 'login/index.html')
     if request.method == "GET":
         return render(request, 'login/select.html')
