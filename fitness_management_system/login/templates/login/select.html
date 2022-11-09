@@ -96,11 +96,11 @@ button:hover {
 
 </head>
 <body>
-<form action="/test" method="post">{% csrf_token %}
+<form method="post">{% csrf_token %}
 
 <div style="text-align:center">
 <label id="1">
-	<select name="Age"  title="Age" required>
+	<select name="age"  title="Age" required>
 		<option selected disabled hidden value="">Age</option>
 		<option value="0-29">0-29</option>
 		<option value="30-40">30-40</option>
@@ -112,7 +112,7 @@ button:hover {
 
 <div style="text-align:center">
 <label id="1">
-	<select id="2" title="Gender" required>
+	<select id="2" name="gender" title="Gender" required>
 		<option selected disabled hidden value="">Gender</option>
 		<option value="Female">Female</option>
 		<option value="Male">Male</option>
@@ -122,7 +122,7 @@ button:hover {
 
 <div style="text-align:center">
 <label id="1">
-	<select id="2" title="Training level" required>
+	<select id="2" name="level" title="Training level" required>
 		<option selected disabled hidden value="">Training level</option>
 		<option value="Entry level">Entry level</option>
 		<option value="Medium">Medium</option>
@@ -132,7 +132,7 @@ button:hover {
 
 <div style="text-align:center">
 <label id="1">
-		<select id="2" title="Notification time" required>
+		<select id="2" name="notification_time" title="Notification time" required>
 		<option selected disabled hidden value="">Notification time</option>
 		<option value="1">Every 7 AM</option>
 		<option value="2">Every 4 PM</option>
