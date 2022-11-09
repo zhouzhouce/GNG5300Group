@@ -2,9 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
-from django.contrib.auth.forms import UserCreationForm
-from rest_framework.decorators import api_view
-from login import models
+from . import models
 
 
 def loginPage(request):
@@ -15,6 +13,9 @@ def loginPage(request):
         email = request.POST.get('email')
         password = request.POST.get('password')
 
+        if email is None or password is None:
+            return render(request, "login/login.html", context=context)
+
         user_obj = User.objects.filter(email=email)
 
         if not user_obj:
@@ -22,15 +23,15 @@ def loginPage(request):
             messages.info(request, "New user has been registered.")
             user_obj = User.objects.get(email=email, password=password)
             login(request, user_obj)
-            return redirect('/index/')
+            return redirect('/select/')
         else:
             user_obj = User.objects.filter(email=email, password=password)
-            if user_obj is not None:
+            if user_obj:
                 user_obj = User.objects.get(email=email, password=password)
                 login(request, user_obj)
-                return redirect('/index/')
+                return redirect('/select/')
             else:
-                messages.error(request, "Username OR Password is not correct.")
+                messages.info(request, "Username OR Password is not correct.")
                 return render(request, "login/login.html", context=context)
 
 
@@ -40,6 +41,7 @@ def index(request):
 
 
 def select(request):
+    context = {}
     if request.method == "POST":
         print(request.POST.get("Age"))
         print(request.POST.get("Gender"))
