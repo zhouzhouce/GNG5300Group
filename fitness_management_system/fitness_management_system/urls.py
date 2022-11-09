@@ -25,6 +25,4 @@ urlpatterns = [
     path('Homepage/',views.homepage ),
     path('login/', views.loginPage),
     path('index/', views.index),
-    path('verify/', views.verifyApi),
-    path('select/', views.select),
 ]

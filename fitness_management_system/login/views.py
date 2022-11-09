@@ -1,8 +1,8 @@
-import json
-from django.http import JsonResponse
-from django.shortcuts import render, HttpResponse, redirect
+from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm
 from rest_framework.decorators import api_view
 from login import models
 
@@ -15,15 +15,19 @@ def loginPage(request):
         email = request.POST.get('email')
         password = request.POST.get('password')
 
-        user_obj = models.User.objects.filter(email=email)
+        user_obj = User.objects.filter(email=email)
 
         if not user_obj:
-            models.User.objects.create(email=email, password=password)
-            messages.info(request, "new user has been registered.")
+            User.objects.create(username=email, email=email, password=password)
+            messages.info(request, "New user has been registered.")
+            user_obj = User.objects.get(email=email, password=password)
+            login(request, user_obj)
             return redirect('/index/')
         else:
-            user_obj = models.User.objects.filter(email=email, password=password)
-            if user_obj:
+            user_obj = User.objects.filter(email=email, password=password)
+            if user_obj is not None:
+                user_obj = User.objects.get(email=email, password=password)
+                login(request, user_obj)
                 return redirect('/index/')
             else:
                 messages.error(request, "Username OR Password is not correct.")
@@ -33,19 +37,6 @@ def loginPage(request):
 def index(request):
     pass
     return render(request, 'login/index.html')
-
-
-@api_view(['GET', 'POST'])
-def verifyApi(request):
-    if request.method == 'GET':
-        return JsonResponse({'code': 500, 'message': "please input your account and password"})
-    if request.method == 'POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-        user_obj = models.User.objects.filter(email=username, password=password)
-        if user_obj:
-            return JsonResponse({'code': 200, 'message': "succeed"})
-        return JsonResponse({'code': 200})
 
 
 def select(request):
