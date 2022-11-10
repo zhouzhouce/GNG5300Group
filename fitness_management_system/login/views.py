@@ -44,16 +44,22 @@ def index(request):
 
 
 def select(request):
-    context = {}
     if request.method == "POST":
-        print(request.POST.get("Age"))
-        print(request.POST.get("Gender"))
-        print(request.POST.get("Age"))
-        print(request.POST.get("Gender"))
-        # print(request.POST.get("password"))
-        return render(request, 'login/index.html')
+        user_email=request.user
+        user_id= User.objects.values("id").filter(email=user_email)
+
+        username=request.POST.get("username")
+        age=request.POST.get("age")
+        gender=request.POST.get("gender")
+        training_level=request.POST.get("training level")
+#create
+        models.UserProfile.objects.create(name=username,user_id=user_id,level=training_level)
+        User.objects.filter(email=user_email).update(username=username)
+        context = {'username': username }
+        return render(request, 'login/index.html',context=context)
     if request.method == "GET":
         return render(request, 'login/select.html')
+
 
 
 def homepage(request):

@@ -4,16 +4,11 @@ from django_mysql.models import EnumField
 
 
 # Create your models here.
-class User(models.Model):
-    email = models.CharField(max_length=100, unique=True)
-    password = models.CharField(max_length=100)
-
-    def __str__(self):
-        return self.email
 
 
 class UserProfile(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    # user = models.ForeignKey(auth.User, on_delete=models.CASCADE)
+    user_id = models.CharField(max_length=100,default='UNDEFINED')
     name = models.CharField(max_length=100, unique=True)
     age = EnumField(choices=utils.AgeEnum.choices, default='UNDEFINED')
     gender = EnumField(choices=utils.GenderEnum.choices, default='UNDEFINED')
@@ -34,10 +29,10 @@ class Exercise(models.Model):
         return self.exercise_title
 
 
-class EventData(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    exercise = models.ForeignKey(Exercise, on_delete=models.CASCADE)
-    exercise_times = models.IntegerField()
+# class EventData(models.Model):
+#     user = models.ForeignKey(User, on_delete=models.CASCADE)
+#     exercise = models.ForeignKey(Exercise, on_delete=models.CASCADE)
+#     exercise_times = models.IntegerField()
 
     def __str__(self):
         return 'Event_' + self.id
