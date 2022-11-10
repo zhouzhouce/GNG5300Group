@@ -7,7 +7,7 @@
          "level": "ENTRY",
          "duration":9.59,
          "calories": 150,
-         "link": "https://www.youtube.com/watch?v=jWCm9piAwAU"
+         "link": "https://www.youtube.com/embed/jWCm9piAwAU"
       }
    },
    {
@@ -18,7 +18,7 @@
          "level":"ENTRY",
          "duration":20.26,
          "calories": 200,
-         "link": "https://www.youtube.com/watch?v=9SMoiCphGTI"
+         "link": "https://www.youtube.com/embed/9SMoiCphGTI"
       }
    },
   {
@@ -29,7 +29,7 @@
          "level":"ENTRY",
          "duration":11.09,
          "calories": 100,
-         "link": "https://www.youtube.com/watch?v=OFLwFZitYAw"
+         "link": "https://www.youtube.com/embed/OFLwFZitYAw"
       }
    },
   {
@@ -40,7 +40,7 @@
          "level":"MEDIUM",
          "duration":12.14,
          "calories": 150,
-         "link": "https://www.youtube.com/watch?v=mcs6XLX8H_0"
+         "link": "https://www.youtube.com/embed/mcs6XLX8H_0"
       }
    },
   {
@@ -51,7 +51,7 @@
          "level":"MEDIUM",
          "duration":10.30,
          "calories": 250,
-         "link": "https://www.youtube.com/watch?v=l2AHpn2i7_Y"
+         "link": "https://www.youtube.com/embed/l2AHpn2i7_Y"
       }
    },
   {
@@ -62,7 +62,7 @@
          "level":"MEDIUM",
          "duration":11.13,
          "calories": 200,
-         "link": "https://www.youtube.com/watch?v=NRwFRLH9ulM"
+         "link": "https://www.youtube.com/embed/NRwFRLH9ulM"
       }
    },
   {
@@ -73,7 +73,7 @@
          "level":"HIGH",
          "duration":22.11,
          "calories": 250,
-         "link": "https://www.youtube.com/watch?v=ymDGnxibsX4"
+         "link": "https://www.youtube.com/embed/ymDGnxibsX4"
       }
    },
   {
@@ -84,7 +84,7 @@
          "level":"HIGH",
          "duration":26.20,
          "calories": 300,
-         "link": "https://www.youtube.com/watch?v=ZGgTAv09Amo"
+         "link": "https://www.youtube.com/embed/ZGgTAv09Amo"
       }
    },
   {
@@ -95,7 +95,7 @@
          "level":"HIGH",
          "duration":27.56,
          "calories": 300,
-         "link": "https://www.youtube.com/watch?v=UrOg0YZ1Diw"
+         "link": "https://www.youtube.com/embed/UrOg0YZ1Diw"
       }
    }
 ]
