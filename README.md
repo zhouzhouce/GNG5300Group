@@ -35,6 +35,7 @@ pip install mysql client
 ```
 pip install PyMySQL
 pip install cryptography
+pip install django-mysql
 ```
 
 ## Cerely
@@ -78,4 +79,9 @@ celery -A fitness_management_system purge
 ### Grant the privileges on test db before creating any test case in test.py
 ```
 GRANT ALL PRIVILEGES ON test_fitness_testdb.* TO 'test'@'localhost';
+```
+
+## Load initial data
+```
+python manage.py loaddata login/fixtures/initial_data.json
 ```
