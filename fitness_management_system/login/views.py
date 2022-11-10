@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.shortcuts import redirect
 from django.contrib.auth.models import User
@@ -15,6 +15,7 @@ def loginPage(request):
         password = request.POST.get('password')
         if email is None or password is None:
             return render(request, "login/login.html", context=context)
+
         user_obj = User.objects.filter(email=email)
 
         if not user_obj:
@@ -22,13 +23,16 @@ def loginPage(request):
             messages.info(request, "New user has been registered.")
             user_obj = User.objects.get(email=email, password=password)
             login(request, user_obj)
-            return redirect('/index/')
+
+            return redirect('/select/')
+
         else:
             user_obj = User.objects.filter(email=email, password=password)
             if user_obj:
                 user_obj = User.objects.get(email=email, password=password)
                 login(request, user_obj)
-                return redirect('/index/')
+                return redirect('/select/')
+
             else:
                 messages.info(request, "Username OR Password is not correct.")
                 return render(request, "login/login.html", context=context)
@@ -40,10 +44,14 @@ def index(request):
 
 
 def select(request):
+    context = {}
     if request.method == "POST":
         print(request.POST.get("Age"))
+        print(request.POST.get("Gender"))
+        print(request.POST.get("Age"))
+        print(request.POST.get("Gender"))
         # print(request.POST.get("password"))
-        return render(request, 'login/select.html')
+        return render(request, 'login/index.html')
     if request.method == "GET":
         return render(request, 'login/select.html')
 
@@ -58,3 +66,4 @@ def homepage(request):
 def videoDetails(request):
     pass
     return render(request, 'login/video_detail.html')
+

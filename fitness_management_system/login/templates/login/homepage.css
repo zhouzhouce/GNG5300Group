@@ -47,12 +47,12 @@
 }
 
 .rectangle{
-    background-color: rgba(242, 242, 242, 0.5699999928);
-    height: 6.7rem;
-    left: 0;
+    color: rgba(242, 242, 242, 0.5699999928);
     position: absolute;
-    top: 39.2rem;
-    width: 34.1rem;
+    width: 341px;
+    height: 67px;
+    left: 86px;
+    top: 1337px;
 }
 
 .relaxation{
@@ -70,3 +70,5 @@
     white-space: nowrap;
     width: 17.3rem;
 }
+
+

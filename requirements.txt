@@ -2,4 +2,7 @@ virtualenv
 django
 djangorestframework
 PyMySQL
-cryptography
+celery
+django-celery-results
+django-celery-beat
+django-mysql
