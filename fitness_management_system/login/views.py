@@ -55,7 +55,9 @@ def select(request):
 #create
         models.UserProfile.objects.create(name=username,user_id=user_id,gender=gender,level=training_level)
         User.objects.filter(email=user_email).update(username=username)
-        context = {'username': username }
+        context = {'username': username,
+                   'level': training_level
+                   }
         return render(request, 'login/index.html',context=context)
     if request.method == "GET":
         return render(request, 'login/select.html')
