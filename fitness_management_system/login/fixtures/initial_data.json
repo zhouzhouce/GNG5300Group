@@ -1,0 +1,101 @@
+[
+  {
+      "model":"login.Exercise",
+      "pk":1,
+      "fields":{
+         "exercise_title": "HITT",
+         "level": "ENTRY",
+         "duration":9.59,
+         "calories": 150,
+         "link": "https://www.youtube.com/embed/jWCm9piAwAU"
+      }
+   },
+   {
+      "model":"login.Exercise",
+      "pk":2,
+      "fields":{
+         "exercise_title": "YOGA",
+         "level":"ENTRY",
+         "duration":20.26,
+         "calories": 200,
+         "link": "https://www.youtube.com/embed/9SMoiCphGTI"
+      }
+   },
+  {
+      "model":"login.Exercise",
+      "pk":3,
+      "fields":{
+         "exercise_title": "CARDIO",
+         "level":"ENTRY",
+         "duration":11.09,
+         "calories": 100,
+         "link": "https://www.youtube.com/embed/OFLwFZitYAw"
+      }
+   },
+  {
+      "model":"login.Exercise",
+      "pk":4,
+      "fields":{
+         "exercise_title": "BOOTY",
+         "level":"MEDIUM",
+         "duration":12.14,
+         "calories": 150,
+         "link": "https://www.youtube.com/embed/mcs6XLX8H_0"
+      }
+   },
+  {
+      "model":"login.Exercise",
+      "pk":5,
+      "fields":{
+         "exercise_title": "AB_WORKOUT",
+         "level":"MEDIUM",
+         "duration":10.30,
+         "calories": 250,
+         "link": "https://www.youtube.com/embed/l2AHpn2i7_Y"
+      }
+   },
+  {
+      "model":"login.Exercise",
+      "pk":6,
+      "fields":{
+         "exercise_title": "WAIST",
+         "level":"MEDIUM",
+         "duration":11.13,
+         "calories": 200,
+         "link": "https://www.youtube.com/embed/NRwFRLH9ulM"
+      }
+   },
+  {
+      "model":"login.Exercise",
+      "pk":7,
+      "fields":{
+         "exercise_title": "CIRCUIT",
+         "level":"HIGH",
+         "duration":22.11,
+         "calories": 250,
+         "link": "https://www.youtube.com/embed/ymDGnxibsX4"
+      }
+   },
+  {
+      "model":"login.Exercise",
+      "pk":8,
+      "fields":{
+         "exercise_title": "STRENGTH",
+         "level":"HIGH",
+         "duration":26.20,
+         "calories": 300,
+         "link": "https://www.youtube.com/embed/ZGgTAv09Amo"
+      }
+   },
+  {
+      "model":"login.Exercise",
+      "pk":9,
+      "fields":{
+         "exercise_title": "FAT_BURNING",
+         "level":"HIGH",
+         "duration":27.56,
+         "calories": 300,
+         "link": "https://www.youtube.com/embed/UrOg0YZ1Diw"
+      }
+   }
+]

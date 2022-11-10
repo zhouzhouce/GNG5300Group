@@ -1,4 +1,6 @@
 from django.db import models
+from login import utils
+from django_mysql.models import EnumField
 
 
 # Create your models here.
@@ -11,38 +13,35 @@ class User(models.Model):
 
 
 class UserProfile(models.Model):
-    BEGINNER = 'Beginner'
-    INTERMEDIATE = 'Intermediate'
-    DIFFICULT = 'Difficult'
-    EXPERT = 'Export'
-    CHOICES = (
-        (BEGINNER, BEGINNER),
-        (INTERMEDIATE, INTERMEDIATE),
-        (DIFFICULT, DIFFICULT),
-        (EXPERT, EXPERT)
-    )
-    name = models.CharField(max_length=100, unique=True)
-    date_of_birth = models.DateField()
-    height = models.TextField(blank=True, null=True)
-    weight = models.TextField(blank=True, null=True)
-    training_level = models.CharField(max_length=100, choices=CHOICES)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    name = models.CharField(max_length=100, unique=True)
+    age = EnumField(choices=utils.AgeEnum.choices, default='UNDEFINED')
+    gender = EnumField(choices=utils.GenderEnum.choices, default='UNDEFINED')
+    level = EnumField(choices=utils.LevelEnum.choices, default='ENTRY')
 
     def __str__(self):
         return self.name
 
 
 class Exercise(models.Model):
-    exercise = models.TextField()
-    calories = models.IntegerField()
+    exercise_title = EnumField(choices=utils.ExerciseTitleEnum.choices, default='HITT')
+    level = EnumField(choices=utils.LevelEnum.choices, default='ENTRY')
+    duration = models.FloatField(default=0)
+    calories = models.IntegerField(default=0)
+    link = models.URLField(max_length=200, default='https://www.youtube.com/')
 
     def __str__(self):
-        return self.exercise
+        return self.exercise_title
 
 
 class EventData(models.Model):
-    duration = models.IntegerField()
-    date = models.DateField()
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     exercise = models.ForeignKey(Exercise, on_delete=models.CASCADE)
+    exercise_times = models.IntegerField()
+
+    def __str__(self):
+        return 'Event_' + self.id
+
+
+
 
