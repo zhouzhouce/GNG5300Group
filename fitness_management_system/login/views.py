@@ -53,7 +53,7 @@ def select(request):
         gender=request.POST.get("gender")
         training_level=request.POST.get("training level")
 #create
-        models.UserProfile.objects.create(name=username,user_id=user_id,level=training_level)
+        models.UserProfile.objects.create(name=username,user_id=user_id,gender=gender,level=training_level)
         User.objects.filter(email=user_email).update(username=username)
         context = {'username': username }
         return render(request, 'login/index.html',context=context)

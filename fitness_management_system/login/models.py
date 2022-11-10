@@ -29,10 +29,10 @@ class Exercise(models.Model):
         return self.exercise_title
 
 
-# class EventData(models.Model):
-#     user = models.ForeignKey(User, on_delete=models.CASCADE)
-#     exercise = models.ForeignKey(Exercise, on_delete=models.CASCADE)
-#     exercise_times = models.IntegerField()
+class EventData(models.Model):
+   # user = models.ForeignKey(User, on_delete=models.CASCADE)
+    exercise = models.ForeignKey(Exercise, on_delete=models.CASCADE)
+    exercise_times = models.IntegerField()
 
     def __str__(self):
         return 'Event_' + self.id
