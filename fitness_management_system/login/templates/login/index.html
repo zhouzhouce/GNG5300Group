@@ -167,6 +167,32 @@
                         </div>
                     </div>
                 </div>
+                <!--  form submit  -->
+                <div class="form_submit">
+                    <form class="layui-form" action="post">
+                          <div class="layui-form-item" style="padding: 10px 0 0 400px;">
+                              <div class="layui-inline" style="text-align: center;">
+                                <label class="layui-form-label" style="font-weight: 600">Select the video:</label>
+                                <div class="layui-input-block">
+                                <select name="title" lay-verify="required">
+                                    <option value="">Please Select</option>
+                                    <option value="Workout Title 1">Workout Title 1</option>
+                                    <option value="Workout Title 2">Workout Title 2</option>
+                                    <option value="Workout Title 3">Workout Title 3</option>
+                                </select>
+                                </div>
+                                <button class="layui-btn layui-btn-normal" lay-submit lay-filter="formDemo">Go!</button>
+                              </div>
+                          </div>
+<!--                          <div class="layui-form-item">-->
+<!--                            <div class="layui-inline">-->
+<!--                                <div class="layui-input-block">-->
+<!--                                <button class="layui-btn" lay-submit lay-filter="formDemo">Go!</button>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                          </div>-->
+                    </form>
+                </div>
             </div>
         </div>
         <!-- bottom card -->

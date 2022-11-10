@@ -18,17 +18,27 @@
             <div class="col-4">
                 <p style="color: #667085;">Please fill your detail to access your account. We'll create a new account if the email does not exist.</p>
                 <form method="POST">
+                    {% if messages %}
+                        {% for msg in messages %}
+                        <div id="tips" class="alert alert-warning alert-dismissible fade show" role="alert">
+                            {{ msg.message }}
+                            <button id="close" type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        {% endfor %}
+                    {% endif %}
                     {% csrf_token %}
                     <!--email-->
                     <div class="form-group">
                         <label for="exampleInputEmail1">Email</label>
-                        <input type="email" class="form-control" placeholder="Please enter your Email Address" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
+                        <input type="email" class="form-control" placeholder="Please enter your Email Address" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" required>
                         <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                     </div>
                     <!-- password-->
                     <div class="form-group">
                         <label for="exampleInputPassword1">Password</label>
-                        <input type="password" class="form-control" placeholder="Please enter your password" id="exampleInputPassword1" name="password">
+                        <input type="password" class="form-control" placeholder="Please enter your password" id="exampleInputPassword1" name="password" required>
                     </div>
                     <!-- remember me & forgot password-->
                     <div class="form-group form-check">
@@ -37,20 +47,28 @@
                         <a href="#" style="margin-left:60px; color:#2D74FF;">Forgot Your Password?</a>
                     </div>
                     <!-- submit button -->
-                    <button type="submit" class="btn btn-primary btn-block">Sign in/Sign up</button>
+                    <button type="submit" id="btn_submit" class="btn btn-primary btn-block">Sign in/Sign up</button>
                 </form>
-                  {% if messages %}
-                    <script>
-                       {% for msg in messages %}
-                        alert('{{ msg.message }}');
-                       {% endfor %}
-                    </script>
-                  {% endif %}
+<!--                  {% if messages %}-->
+<!--                    <script>-->
+<!--                       {% for msg in messages %}-->
+<!--                        alert('{{ msg.message }}');-->
+<!--                       {% endfor %}-->
+<!--                    </script>-->
+<!--                  {% endif %}-->
             </div>
         </div>
     </div>
     <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
     <script src="https://cdn.bootcss.com/popper.js/1.15.0/umd/popper.js"></script>
     <script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<!--    <script>-->
+<!--        $("#btn_submit").click(function() {-->
+<!--            $("#tips").addClass('show')-->
+<!--            window.setTimeout(function(){-->
+<!--                $("#tips").removeClass('show')-->
+<!--               }, 1000)-->
+<!--            })-->
+<!--    </script>-->
 </body>
 </html>

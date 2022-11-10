@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.contrib import messages
 from django.shortcuts import redirect
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login, logout
 from . import models
 
 
@@ -11,19 +13,24 @@ def loginPage(request):
     if request.method == 'POST':
         email = request.POST.get('email')
         password = request.POST.get('password')
-
-        user_obj = models.User.objects.filter(email=email)
+        if email is None or password is None:
+            return render(request, "login/login.html", context=context)
+        user_obj = User.objects.filter(email=email)
 
         if not user_obj:
-            models.User.objects.create(email=email, password=password)
-            messages.info(request, "new user has been registered.")
+            User.objects.create(username=email, email=email, password=password)
+            messages.info(request, "New user has been registered.")
+            user_obj = User.objects.get(email=email, password=password)
+            login(request, user_obj)
             return redirect('/index/')
         else:
-            user_obj = models.User.objects.filter(email=email, password=password)
+            user_obj = User.objects.filter(email=email, password=password)
             if user_obj:
+                user_obj = User.objects.get(email=email, password=password)
+                login(request, user_obj)
                 return redirect('/index/')
             else:
-                messages.error(request, "Username OR Password is not correct.")
+                messages.info(request, "Username OR Password is not correct.")
                 return render(request, "login/login.html", context=context)
 
 
@@ -46,3 +53,8 @@ def homepage(request):
         return render(request, "login/homepage.html")
     if request.method == 'POST':
         return redirect('/login/')
+
+
+def videoDetails(request):
+    pass
+    return render(request, 'login/video_detail.html')
