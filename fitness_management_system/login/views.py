@@ -3,7 +3,7 @@ from django.contrib import messages
 from django.shortcuts import redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
-from . import models
+from . import models, utils
 
 
 def loginPage(request):
@@ -64,6 +64,12 @@ def homepage(request):
 
 
 def videoDetails(request):
-    pass
-    return render(request, 'login/video_detail.html')
-
+    context = {}
+    title = request.POST.get('title')
+    user_id = request.User.id
+    exercise_obj = models.Exercise.objects.get(exercise_title=title)
+    exercise_id = exercise_obj.id
+    utils.generate_event_data(user_id, exercise_id)
+    link = exercise_obj.link
+    context['Video Link'] = link
+    return render(request, 'login/video_detail.html', context=context)
