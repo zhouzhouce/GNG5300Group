@@ -124,13 +124,13 @@
     {% csrf_token %}
     <div id="outlayer">
         <div class="userbtn">
-            <button type="button" class="layui-btn layui-btn-normal userpage-btn">User Name</button>
+            <button type="button" class="layui-btn layui-btn-normal userpage-btn">{{ username }}</button>
         </div>
         <!-- top card with videolink -->
         <div id="top-card" class="layui-card">
             <div class="layui-card-header header-card">
                 <p class="card-word">This is your plan!</p>
-                <p class="card-desc">Description: it is an entrance level plan</p>
+                <p class="card-desc">It is {{level}} level</p>
             </div>
             <div class="layui-card-body body-card">
                 <div class="inner-layer">
