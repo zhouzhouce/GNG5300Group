@@ -3,6 +3,7 @@ from django.contrib import messages
 from django.shortcuts import redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import login
+from .utils import calculate_calories_duration
 from . import models
 
 
@@ -43,20 +44,10 @@ def index(request):
         user = request.user
         training_level = models.UserProfile.objects.values("level").filter(user_id=user.id)
         titles = models.Exercise.objects.values("exercise_title").filter(level=training_level[0]["level"])
-        events = models.EventData.objects.filter(user_id=request.user.id)
-        sum_calories = 0
-        sum_hours = 0
+        sum_calories, sum_hours = calculate_calories_duration(request.user.id)
 
-        for i in range(0, len(events)):
-            times = models.EventData.objects.values("exercise_times").filter(user_id=request.user.id)[i]["exercise_times"]
-            exercise_id = models.EventData.objects.values("exercise_id").filter(user_id=request.user.id)[i]["exercise_id"]
-            calories = models.Exercise.objects.values("calories").filter(id=exercise_id)[0]["calories"] * times
-            hours = models.Exercise.objects.values("duration").filter(id=exercise_id)[0]["duration"] * times
-
-            sum_calories = sum_calories + calories
-            sum_hours = sum_hours + hours
-
-        context = {"levels": training_level, "titles": titles, "sum_calories": sum_calories, "sum_hours": sum_hours}
+        context = {"level": training_level[0]["level"], "titles": titles, "title1": titles[0]["exercise_title"], "title2": titles[1]["exercise_title"],
+                   "title3": titles[2]["exercise_title"], "sum_calories": sum_calories, "sum_hours": sum_hours}
         return render(request, 'login/index.html', context)
 
 

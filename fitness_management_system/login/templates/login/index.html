@@ -130,9 +130,7 @@
         <div id="top-card" class="layui-card">
             <div class="layui-card-header header-card">
                 <p class="card-word">Hello <a style="color: lightblue; text-decoration: none;">{{request.user}}</a>, this is your plan!</p>
-                {% for level in levels %}
-                <p class="card-desc">Description: it is an <a style="color: lightgreen; text-decoration: none;">{{level.level}}</a> level plan</p>
-                {% endfor %}
+                <p class="card-desc">Description: it is an <a style="color: lightgreen; text-decoration: none;">{{level}}</a> level plan</p>
             </div>
             <div class="layui-card-body body-card">
                 <div class="inner-layer">
@@ -141,9 +139,9 @@
                             <img src="{% static "images/Thumbnail.png" %}" alt="video_img">
                         </a>
                         <div class="left-bot">
-                            <p class="title">Workout Title</p>
+                            <p class="title">{{title1}}</p>
                             <p class="level">
-                                level2 · 12min
+                                {{level}} · 12min
                             </p>
                         </div>
                     </div>
@@ -152,9 +150,9 @@
                             <img src="{% static "images/Thumbnail.png" %}" alt="video_img">
                         </a>
                         <div class="left-bot">
-                            <p class="title">Workout Title</p>
+                            <p class="title">{{title2}}</p>
                             <p class="level">
-                                level2 · 12min
+                                {{level}} · 12min
                             </p>
                         </div>
                     </div>
@@ -163,9 +161,9 @@
                             <img src="{% static "images/Thumbnail.png" %}" alt="video_img">
                         </a>
                         <div class="left-bot">
-                            <p class="title">Workout Title</p>
+                            <p class="title">{{title3}}</p>
                             <p class="level">
-                                level2 · 12min
+                                {{level}} · 12min
                             </p>
                         </div>
                     </div>
