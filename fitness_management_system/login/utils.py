@@ -1,34 +1,42 @@
-from django.db import models
-from django_mysql.models import EnumField
+from login import models
+import datetime
 
 
-class LevelEnum(models.TextChoices):
-    ENTRY = 'ENTRY'
-    MEDIUM = 'MEDIUM'
-    HIGH = 'HIGH'
+def generate_event_data(user_id, exercise_id):
+    """
+    Create a new event record for update an existing event. Once a user watch the video during the same day,
+    the state exercise_times of event will be increased by one. If it's the first time that the user watches the video,
+    then a new event record will be created with 'exercise_times' default to one.
+    """
+    d = datetime.date.today()
+    event = models.EventData.objects.filter(user_id=user_id, exercise_id=exercise_id).latest('created_at')
+    if not event or event.created_at < d:
+        models.EventData.objects.create(user_id=user_id, exercise_id=exercise_id, exercise_times=1)
+    else:
+        event.exercise_times += 1
+        event.save()
 
 
-class GenderEnum(models.TextChoices):
-    FEMALE = 'FEMALE'
-    MALE = 'MALE'
-    UNDEFINED = 'UNDEFINED'
+def calculate_calories_duration(user_id):
+    total_calories = 0
+    total_duration = 0
+    d = datetime.date.today()
+    events = models.EventData.objects.filter(user_id=user_id, created_at=d).values()
+    for event in events:
+        times = event['exercise_times']
+        exercise_id = event['exercise_id']
+        exercise_obj = models.Exercise.objects.get(id=exercise_id)
+        calorie = exercise_obj.calories
+        duration = exercise_obj.duration
+        total_calories += calorie * times
+        total_duration += duration * times
+    return total_calories, total_duration
 
 
-class AgeEnum(models.TextChoices):
-    AGE_RANGE_0_29 = 'AGE_RANGE_0_29'
-    AGE_RANGE_30_40 = 'AGE_RANGE_30_40'
-    AGE_RANGE_40_50 = 'AGE_RANGE_40_50'
-    AGE_ABOVE_50 = 'AGE_ABOVE_50'
-    UNDEFINED = 'UNDEFINED'
+def get_event_history(user_id):
+    events = models.EventData.objects.filter(user_id=user_id).values()
+    return events
 
 
-class ExerciseTitleEnum(models.TextChoices):
-    HIIT = 'HITT'
-    YOGA = 'YOGA'
-    CARDIO = 'CARDIO'
-    BOOTY = 'BOOTY'
-    AB_WORKOUT = 'AB_WORKOUT'
-    WAIST = 'WAIST'
-    CIRCUIT = 'CIRCUIT'
-    STRENGTH = 'STRENGTH'
-    FAT_BURNING = 'FAT_BURNING'
+
+
