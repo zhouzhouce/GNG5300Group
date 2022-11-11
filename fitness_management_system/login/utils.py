@@ -17,8 +17,9 @@ def generate_event_data(user_id, exercise_id):
         event.save()
 
 
-def calculate_calories(user_id):
+def calculate_calories_duration(user_id):
     total_calories = 0
+    total_duration = 0
     d = datetime.date.today()
     events = models.EventData.objects.filter(user_id=user_id, created_at=d).values()
     for event in events:
@@ -26,8 +27,10 @@ def calculate_calories(user_id):
         exercise_id = event['exercise_id']
         exercise_obj = models.Exercise.objects.get(id=exercise_id)
         calorie = exercise_obj.calories
+        duration = exercise_obj.duration
         total_calories += calorie * times
-    return total_calories
+        total_duration += duration * times
+    return total_calories, total_duration
 
 
 def get_event_history(user_id):
