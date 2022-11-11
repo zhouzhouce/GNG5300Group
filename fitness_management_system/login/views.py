@@ -52,12 +52,20 @@ def index(request):
 
 
 def select(request):
-    context = {}
     if request.method == "POST":
-        user = request.user
-        return render(request, 'login/index.html')
+        user_email=request.user
+        user_id= User.objects.values("id").filter(email=user_email)
+
+        username=request.POST.get("username")
+        age=request.POST.get("age")
+        gender=request.POST.get("gender")
+        training_level=request.POST.get("training level")
+#create
+        models.UserProfile.objects.create(name=username,user_id=user_id,gender=gender,level=training_level)
+        User.objects.filter(email=user_email).update(username=username)
+        return redirect('/index/')
     if request.method == "GET":
-        return render(request, 'login/select.html', context)
+        return render(request, 'login/select.html')
 
 
 def homepage(request):

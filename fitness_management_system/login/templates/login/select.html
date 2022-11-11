@@ -119,29 +119,29 @@ button:hover {
 <form action="" method="post">{% csrf_token %}
 
 <div style="text-align:center">
-	<input type="text" style="cursor: text;" autofocus="autofocus" placeholder="Please enter your user name" required>
+	<input name="username" type="text" style="cursor: text;" autofocus="autofocus" placeholder="Please enter your username" required>
 </div>
 
-<div style="text-align:center">
-	<label id="1">
-	<select name="Age"  title="Age" required>
-		<option selected disabled hidden value="">Age</option>
-		<option value="0-29">0-29</option>
-		<option value="30-40">30-40</option>
-		<option value="40-50">40-50</option>
-		<option value="older than 50">older than 50</option>
-		<option value="I prefer not to say">I prefer not to say</option>
-	</select>
-</label>
-</div>
+<!--<div style="text-align:center">-->
+<!--	<label id="1">-->
+<!--	<select name="age"  required>-->
+<!--		<option selected disabled hidden value="">Age</option>-->
+<!--		<option value="0-29">0-29</option>-->
+<!--		<option value="30-40">30-40</option>-->
+<!--		<option value="40-50">40-50</option>-->
+<!--		<option value="older than 50">older than 50</option>-->
+<!--		<option value="I prefer not to say">I prefer not to say</option>-->
+<!--	</select>-->
+<!--</label>-->
+<!--</div>-->
 
 <div style="text-align:center">
 <label id="1">
 	<select name="gender" required>
 		<option selected disabled hidden value="">Gender</option>
-		<option value="Female">Female</option>
-		<option value="Male">Male</option>
-		<option value="I prefer not to say">I prefer not to say</option>
+		<option value="FEMALE">Female</option>
+		<option value="MALE">Male</option>
+		<option value="UNDEFINED">I prefer not to say</option>
 	</select>
 </label>
 </div>
