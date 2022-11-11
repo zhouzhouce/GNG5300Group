@@ -13,7 +13,8 @@ class User(models.Model):
 
 
 class UserProfile(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    # user = models.ForeignKey(auth.User, on_delete=models.CASCADE)
+    user_id = models.CharField(max_length=100, default='UNDEFINED')
     name = models.CharField(max_length=100, unique=True)
     age = EnumField(choices=utils.AgeEnum.choices, default='UNDEFINED')
     gender = EnumField(choices=utils.GenderEnum.choices, default='UNDEFINED')
@@ -35,7 +36,7 @@ class Exercise(models.Model):
 
 
 class EventData(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user_id = models.CharField(max_length=100, default='UNDEFINED')
     exercise = models.ForeignKey(Exercise, on_delete=models.CASCADE)
     exercise_times = models.IntegerField()
 
