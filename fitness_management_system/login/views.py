@@ -72,4 +72,4 @@ def videoDetails(request):
     utils.generate_event_data(user_id, exercise_id)
     link = exercise_obj.link
     context['Video Link'] = link
-    return render(request, 'login/video_detail.html', context=context)
+    return render(request, 'login/videoDetails.html', context=context)
