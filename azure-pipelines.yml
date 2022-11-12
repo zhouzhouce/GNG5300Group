@@ -4,9 +4,6 @@ task: UsePythonVersion@0
     versionSpec: '3.x'
     addToPath: true
     architecture: 'x64'
-# Test a Django project on multiple versions of Python.
-# Add steps that analyze code, save build artifacts, deploy, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/python
 
 trigger:
 - main
