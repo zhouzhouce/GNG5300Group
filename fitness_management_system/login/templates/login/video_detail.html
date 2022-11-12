@@ -65,14 +65,14 @@
 <body>
     <div id="outlayer">
         <div class="right-btn">
-            <button type="button" class="layui-btn layui-btn-normal"><p>User Name</p></button>
+            <button type="button" class="layui-btn layui-btn-normal"><p>{{request.user}}</p></button>
         </div>
         <div class="video-detail">
             <!-- video -->
             <!-- <video src="https://www.youtube.com/watch?v=IT94xC35u6k" poster="Thumbnail.png" autoplay="autoplay" loop="loop" controls>
                 <source src="https://www.youtube.com/watch?v=IT94xC35u6k" type="video/mp4">
             </video> -->
-            <iframe src="https://www.youtube.com/embed/jWCm9piAwAU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe src="{{video_link}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
         <div class="bot-word">
             <div class="header">Workout Title 3</div>
