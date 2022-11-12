@@ -53,6 +53,9 @@ def index(request):
             models.EventData.objects.filter(user_id=request.user.id, exercise_id=exercise_id).update(exercise_times=exercise_times+1)
 
         context['video_link'] = link
+        context['title'] = title
+        context['duration'] = models.Exercise.objects.values("duration").filter(exercise_title=title)[0]["duration"]
+        context['level'] = models.Exercise.objects.values("level").filter(exercise_title=title)[0]["level"]
         return render(request, 'login/video_detail.html', context=context)
     if request.method == "GET":
         user = request.user
