@@ -62,3 +62,7 @@ steps:
     versionSpec: '3.x'
     addToPath: true
     architecture: 'x64'
+
+- task: CmdLine@2
+  inputs:
+    script: 'pip install -r requirements.txt'
