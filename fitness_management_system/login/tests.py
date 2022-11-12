@@ -20,7 +20,7 @@ class TestUtils(TestCase):
         utils.generate_event_data(1, 1)
         utils.generate_event_data(1, 1)
         event_list = list(models.EventData.objects.all().values())
-        assert len(event_list) == 2
+        assert len(event_list) == 1
         assert event_list[0]["created_at"] == d
         assert event_list[1]["created_at"] == datetime.date.today()
         assert event_list[1]["exercise_times"] == 4
@@ -29,7 +29,7 @@ class TestUtils(TestCase):
         res = utils.calculate_calories_duration(1)
         assert res == (300, 20)
 
-    def test_videoGo(self):
+    def test_video_details(self):
         title = 'HITT'
         exercise_obj = models.Exercise.objects.get(exercise_title=title)
         exercise_id = exercise_obj.id

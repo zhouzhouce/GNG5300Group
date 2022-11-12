@@ -1,9 +1,9 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.shortcuts import redirect
-from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from . import models, utils
+from login.models import User
 
 
 def loginPage(request):
@@ -19,7 +19,7 @@ def loginPage(request):
         user_obj = User.objects.filter(email=email)
 
         if not user_obj:
-            User.objects.create(username=email, email=email, password=password)
+            User.objects.create(email=email, password=password)
             messages.info(request, "New user has been registered.")
             user_obj = User.objects.get(email=email, password=password)
             login(request, user_obj)
@@ -64,12 +64,5 @@ def homepage(request):
 
 
 def videoDetails(request):
-    context = {}
-    title = request.POST.get('title')
-    user_id = request.User.id
-    exercise_obj = models.Exercise.objects.get(exercise_title=title)
-    exercise_id = exercise_obj.id
-    utils.generate_event_data(user_id, exercise_id)
-    link = exercise_obj.link
-    context['Video Link'] = link
-    return render(request, 'login/videoDetails.html', context=context)
+    if request.method == 'GET':
+        return render(request, 'login/video_detail.html')
