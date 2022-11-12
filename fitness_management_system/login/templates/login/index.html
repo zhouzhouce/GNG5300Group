@@ -124,13 +124,13 @@
     {% csrf_token %}
     <div id="outlayer">
         <div class="userbtn">
-            <button type="button" class="layui-btn layui-btn-normal userpage-btn">{{ username }}</button>
+            <button type="button" class="layui-btn layui-btn-normal userpage-btn">{{request.user}}</button>
         </div>
         <!-- top card with videolink -->
         <div id="top-card" class="layui-card">
             <div class="layui-card-header header-card">
-                <p class="card-word">This is your plan!</p>
-                <p class="card-desc">It is {{level}} level</p>
+                <p class="card-word">Hello <a style="color: lightblue; text-decoration: none;">{{request.user}}</a>, this is your plan!</p>
+                <p class="card-desc">Description: it is an <a style="color: lightgreen; text-decoration: none;">{{level}}</a> level plan</p>
             </div>
             <div class="layui-card-body body-card">
                 <div class="inner-layer">
@@ -139,9 +139,9 @@
                             <img src="{% static "images/Thumbnail.png" %}" alt="video_img">
                         </a>
                         <div class="left-bot">
-                            <p class="title">Workout Title</p>
+                            <p class="title">{{title1}}</p>
                             <p class="level">
-                                level2 · 12min
+                                {{level}} · {{duration1}}
                             </p>
                         </div>
                     </div>
@@ -150,9 +150,9 @@
                             <img src="{% static "images/Thumbnail.png" %}" alt="video_img">
                         </a>
                         <div class="left-bot">
-                            <p class="title">Workout Title</p>
+                            <p class="title">{{title2}}</p>
                             <p class="level">
-                                level2 · 12min
+                                {{level}} · {{duration2}}
                             </p>
                         </div>
                     </div>
@@ -161,25 +161,26 @@
                             <img src="{% static "images/Thumbnail.png" %}" alt="video_img">
                         </a>
                         <div class="left-bot">
-                            <p class="title">Workout Title</p>
+                            <p class="title">{{title3}}</p>
                             <p class="level">
-                                level2 · 12min
+                                {{level}} · {{duration3}}
                             </p>
                         </div>
                     </div>
                 </div>
                 <!--  form submit  -->
                 <div class="form_submit">
-                    <form class="layui-form" action="post">
+                    <form class="layui-form" method="post">
+                            {% csrf_token %}
                           <div class="layui-form-item" style="padding: 10px 0 0 400px;">
                               <div class="layui-inline" style="text-align: center;">
                                 <label class="layui-form-label" style="font-weight: 600">Select the video:</label>
                                 <div class="layui-input-block">
                                 <select name="title" lay-verify="required">
                                     <option value="">Please Select</option>
-                                    <option value="Workout Title 1">Workout Title 1</option>
-                                    <option value="Workout Title 2">Workout Title 2</option>
-                                    <option value="Workout Title 3">Workout Title 3</option>
+                                    {% for title in titles %}
+                                    <option value={{title.exercise_title}}>{{title.exercise_title}}</option>
+                                    {% endfor %}
                                 </select>
                                 </div>
                                 <button class="layui-btn layui-btn-normal" lay-submit lay-filter="formDemo">Go!</button>
@@ -218,11 +219,11 @@
                     <tbody>
                       <tr>
                         <td>Total Hours</td>
-                        <td>200</td>
+                        <td>{{sum_hours}}</td>
                       </tr>
                       <tr>
                         <td>Total Calorie Consumption</td>
-                        <td>500 cal</td>
+                        <td>{{sum_calories}}</td>
                       </tr>
                     </tbody>
                   </table>
