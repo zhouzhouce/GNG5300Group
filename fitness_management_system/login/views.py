@@ -39,6 +39,8 @@ def loginPage(request):
 def index(request):
     context = {}
     if request.method == "POST":
+        user = request.user
+        user_name = models.UserProfile.objects.values("name").filter(user_id=user.id)[0]["name"]
         title = request.POST.get('title')
         try:
             exercise_obj = models.Exercise.objects.get(exercise_title=title)
@@ -50,10 +52,12 @@ def index(request):
         context['title'] = title
         context['duration'] = exercise_obj.duration
         context['level'] = exercise_obj.level
+        context['name'] = user_name
         return render(request, 'login/video_detail.html', context=context)
 
     if request.method == "GET":
         user = request.user
+        user_name = models.UserProfile.objects.values("name").filter(user_id=user.id)[0]["name"]
         training_level = models.UserProfile.objects.values("level").filter(user_id=user.id)
         titles = models.Exercise.objects.values("exercise_title").filter(level=training_level[0]["level"])
         durations = models.Exercise.objects.values("duration").filter(level=training_level[0]["level"])
@@ -61,6 +65,7 @@ def index(request):
 
         context = {"level": training_level[0]["level"],
                    "titles": titles,
+                   "name": user_name,
                    "title1": titles[0]["exercise_title"],
                    "title2": titles[1]["exercise_title"],
                    "title3": titles[2]["exercise_title"],
