@@ -48,8 +48,7 @@ def index(request):
         if not event:
             models.EventData.objects.create(user_id=request.user.id, exercise_id=exercise_id, created_at=d, exercise_times=1)
         else:
-            exercise_times = \
-            models.EventData.objects.values("exercise_times").filter(user_id=request.user.id, exercise_id=exercise_id,
+            exercise_times = models.EventData.objects.values("exercise_times").filter(user_id=request.user.id, exercise_id=exercise_id,
                                                                      created_at=d)[0]["exercise_times"]
             models.EventData.objects.filter(user_id=request.user.id, exercise_id=exercise_id).update(exercise_times=exercise_times+1)
 
