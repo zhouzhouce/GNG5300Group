@@ -1,4 +1,5 @@
 from login import models
+from django.core.exceptions import ObjectDoesNotExist
 import datetime
 
 
@@ -9,8 +10,12 @@ def generate_event_data(user_id, exercise_id):
     then a new event record will be created with 'exercise_times' default to one.
     """
     d = datetime.date.today()
-    event = models.EventData.objects.filter(user_id=user_id, exercise_id=exercise_id).latest('created_at')
-    if not event or event.created_at < d:
+    try:
+        event = models.EventData.objects.get(user_id=user_id, exercise_id=exercise_id, created_at=d)
+    except ObjectDoesNotExist:
+        event = None
+
+    if not event:
         models.EventData.objects.create(user_id=user_id, exercise_id=exercise_id, exercise_times=1)
     else:
         event.exercise_times += 1
@@ -36,7 +41,3 @@ def calculate_calories_duration(user_id):
 def get_event_history(user_id):
     events = models.EventData.objects.filter(user_id=user_id).values()
     return events
-
-
-
-

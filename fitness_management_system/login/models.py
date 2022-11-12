@@ -1,5 +1,7 @@
 from django.db import models
 from django_mysql.models import EnumField
+from django.conf import settings
+from django.contrib.auth.models import AbstractBaseUser
 import datetime
 
 
@@ -36,17 +38,19 @@ class ExerciseTitleEnum(models.TextChoices):
     FAT_BURNING = 'FAT_BURNING'
 
 
-class User(models.Model):
+class User(AbstractBaseUser):
     email = models.CharField(max_length=100, unique=True)
     password = models.CharField(max_length=100)
+
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = ['username']
 
     def __str__(self):
         return self.email
 
 
 class UserProfile(models.Model):
-    # user = models.ForeignKey(auth.User, on_delete=models.CASCADE)
-    user_id = models.CharField(max_length=100, default='UNDEFINED')
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=100, unique=True)
     age = EnumField(choices=AgeEnum.choices, default='UNDEFINED')
     gender = EnumField(choices=GenderEnum.choices, default='UNDEFINED')
@@ -68,7 +72,7 @@ class Exercise(models.Model):
 
 
 class EventData(models.Model):
-    user_id = models.CharField(max_length=100, default='UNDEFINED')
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     exercise = models.ForeignKey(Exercise, on_delete=models.CASCADE)
     exercise_times = models.IntegerField()
     created_at = models.DateField(default=datetime.date.today)

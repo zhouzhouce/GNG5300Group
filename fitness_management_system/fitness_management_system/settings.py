@@ -160,3 +160,6 @@ CELERY_RESULT_BACKEND = 'django-db'
 
 # Celery beat Setting
 CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'
+
+# settings.py
+AUTH_USER_MODEL = 'login.User'
