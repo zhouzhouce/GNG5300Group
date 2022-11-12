@@ -11,10 +11,11 @@ def generate_event_data(user_id, exercise_id):
     """
     d = datetime.date.today()
     try:
-        event = models.EventData.objects.filter(user_id=user_id, exercise_id=exercise_id).latest('created_at')
+        event = models.EventData.objects.get(user_id=user_id, exercise_id=exercise_id, created_at=d)
     except ObjectDoesNotExist:
         event = None
-    if not event or event.created_at < d:
+
+    if not event:
         models.EventData.objects.create(user_id=user_id, exercise_id=exercise_id, exercise_times=1)
     else:
         event.exercise_times += 1
@@ -40,7 +41,3 @@ def calculate_calories_duration(user_id):
 def get_event_history(user_id):
     events = models.EventData.objects.filter(user_id=user_id).values()
     return events
-
-
-
-
