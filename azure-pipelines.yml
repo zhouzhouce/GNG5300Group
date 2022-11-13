@@ -1,7 +1,4 @@
 # Python Django
-- task: CmdLine@2
-  inputs:
-    script: 'run python manage.py runserver'
 # Test a Django project on multiple versions of Python.
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/python
@@ -65,3 +62,7 @@ steps:
 - task: CmdLine@2
   inputs:
     script: 'pip install -r requirements.txt'
+
+- task: CmdLine@2
+  inputs:
+    script: 'python manage.py runserver'
