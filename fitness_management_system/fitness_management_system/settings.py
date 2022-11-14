@@ -24,7 +24,7 @@ SECRET_KEY = 'django-insecure-r8k-%gxj94_#06wgww8f(tl+wb8#!5xhlma4qshk2xg&z#)@oo
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['20.63.88.139']
 
 # Application definition
 
@@ -83,17 +83,21 @@ WSGI_APPLICATION = 'fitness_management_system.wsgi.application'
 # }
 
 DATABASES = {
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.mysql',
+    #     'NAME': 'fitness_testdb',
+    #     'USER': 'test',
+    #     'PASSWORD': 'secret_1234',
+    #     'HOST': 'localhost',
+    #     'PORT': '3306',
+    #     'TEST': {
+    #         'NAME': 'test_fitness_testdb',
+    #     },
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'fitness_testdb',
-        'USER': 'test',
-        'PASSWORD': 'secret_1234',
-        'HOST': 'localhost',
-        'PORT': '3306',
-        'TEST': {
-            'NAME': 'test_fitness_testdb',
-        },
+            'ENGINE': 'django.db.backends.sqlite3',
+             'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
+
 }
 
 # Password validation
