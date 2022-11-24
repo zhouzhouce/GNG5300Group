@@ -20,6 +20,11 @@ steps:
     versionSpec: '$(PYTHON_VERSION)'
     architecture: 'x64'
 
+
+- task: CmdLine@2
+  inputs:
+    script: 'pip install -r requirements.txt'
+    
 - task: PythonScript@0
   displayName: 'Export project path'
   inputs:
@@ -60,10 +65,6 @@ steps:
     versionSpec: '3.x'
     addToPath: true
     architecture: 'x64'
-
-- task: CmdLine@2
-  inputs:
-    script: 'pip install -r requirements.txt'
 
 - task: CmdLine@2
   inputs:
