@@ -39,9 +39,9 @@ steps:
     python -m pip install --upgrade pip setuptools wheel
     pip install -r requirements.txt
     pip install unittest-xml-reporting
-    python3 manage.py makemigrations
-    python3 manage.py migrate
-    python3 manage.py runserver
+    python3 fitness_management_system/manage.py makemigrations
+    python3 fitness_management_system/manage.py migrate
+    python3 fitness_management_system/manage.py runserver
   displayName: 'Install prerequisites'
 
 - script: |
@@ -67,4 +67,4 @@ steps:
 
 - task: CmdLine@2
   inputs:
-    script: 'python manage.py runserver'
+    script: 'python fitness_management_system/manage.py runserver'
