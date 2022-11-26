@@ -82,18 +82,35 @@ WSGI_APPLICATION = 'fitness_management_system.wsgi.application'
 #     }
 # }
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'fitness_testdb',
+#         'USER': 'test',
+#         'PASSWORD': 'secret_1234',
+#         'HOST': 'localhost',
+#         'PORT': '3306',
+#         'TEST': {
+#             'NAME': 'test_fitness_testdb',
+#         },
+#     }
+# }
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'fitness_testdb',
-        'USER': 'test',
-        'PASSWORD': 'secret_1234',
-        'HOST': 'localhost',
+        'NAME': 'djangojdb',
+        'USER': 'jli@djangojjdbserver',
+        'PASSWORD': '112233Khd3',
+        'HOST': 'djangojjdbserver.mysql.database.azure.com',
         'PORT': '3306',
-        'TEST': {
-            'NAME': 'test_fitness_testdb',
+        "SSLMODE": "require",
+        "OPTIONS": {
+            'ssl': {
+                'ca': '/BaltimoreCyberTrustRoot.crt.pem',
+            },
         },
-    }
+    },
 }
 
 # Password validation
