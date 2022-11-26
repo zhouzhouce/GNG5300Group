@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UserProfile</title>
+    <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        #outlayer {
+            padding: 60px 53px 0px 77px;
+        }
+
+        #outlayer h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        #outlayer .inner {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 128px;
+        }
+
+        #outlayer .bottom-card {
+            padding: 0 200px 30px 200px;
+        }
+
+        #outlayer .bottom-card .form-control {
+            display: block;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="outlayer">
+        <a class="btn btn-primary" href="#" role="button">Back</a>
+        <h2>Plan Progress</h2>
+        <div class="inner">
+            <div class="card card-style1" style="width: 18rem; background-color: rgba(245, 252, 255, 1);">
+                <img src="{% static "images/sports1.jpg" %}" class="card-img-top" alt="Fitness">
+                <div class="card-body">
+                    <h5 class="card-title" style="text-align: center;">Days</h5>
+                    <p class="card-text" style="text-align: center;"><i
+                            style="font-style: normal; font-weight: 700; color: lightskyblue;">21</i> Days</p>
+                </div>
+            </div>
+            <div class="card card-style2" style="width: 18rem; background-color: rgba(245, 252, 255, 1);">
+                <img src="{% static "images/sports2.png" %}" class="card-img-top" alt="Fitness">
+                <div class="card-body">
+                    <h5 class="card-title" style="text-align: center;">Total Minutes</h5>
+                    <p class="card-text" style="text-align: center;"><i
+                            style="font-style: normal; font-weight: 700; color: lightskyblue">123</i> min</p>
+                </div>
+            </div>
+            <div class="card card-style3" style="width: 18rem; background-color: rgba(245, 252, 255, 1);">
+                <img src="{% static "images/sports3.jpg" %}" class="card-img-top" alt="Fitness">
+                <div class="card-body">
+                    <h5 class="card-title" style="text-align: center;">Calorie</h5>
+                    <p class="card-text" style="text-align: center;"><i
+                            style="font-style: normal; font-weight: 700; color: lightskyblue;">200</i> Cal</p>
+                </div>
+            </div>
+        </div>
+        <h2>Your Personal Data</h2>
+        <div class="bottom-card">
+            <div class="input-group flex-nowrap">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="addon-wrapping">Username</span>
+                </div>
+                <input type="text" class="form-control" placeholder="John" aria-label="Username"
+                    aria-describedby="addon-wrapping">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="addon-wrapping">Gender</span>
+                </div>
+                <input type="text" class="form-control" placeholder="Male" aria-label="Username"
+                    aria-describedby="addon-wrapping">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="addon-wrapping">Training Level</span>
+                </div>
+                <input type="text" class="form-control" placeholder="High" aria-label="Username"
+                    aria-describedby="addon-wrapping">
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.15.0/umd/popper.js"></script>
+    <script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+
+</html>
