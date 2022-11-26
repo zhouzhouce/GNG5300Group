@@ -24,7 +24,7 @@ SECRET_KEY = 'django-insecure-r8k-%gxj94_#06wgww8f(tl+wb8#!5xhlma4qshk2xg&z#)@oo
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['20.63.88.139', '127.0.0.1']
+ALLOWED_HOSTS = ['20.63.88.139', '127.0.0.1', 'fitnessmanagementsys.azurewebsites.net']
 
 # Application definition
 
