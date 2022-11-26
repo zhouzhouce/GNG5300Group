@@ -19,7 +19,7 @@ steps:
   inputs:
     versionSpec: '$(PYTHON_VERSION)'
     architecture: 'x64'
-
+    
 - task: PythonScript@0
   displayName: 'Export project path'
   inputs:
@@ -38,6 +38,7 @@ steps:
 - script: |
     python -m pip install --upgrade pip setuptools wheel
     pip install -r requirements.txt
+    pip install Django
     pip install unittest-xml-reporting
     python3 fitness_management_system/manage.py makemigrations
     python3 fitness_management_system/manage.py migrate
