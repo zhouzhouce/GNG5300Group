@@ -40,9 +40,8 @@ steps:
     pip install -r requirements.txt
     pip install Django
     pip install unittest-xml-reporting
-    python3 fitness_management_system/manage.py makemigrations
-    python3 fitness_management_system/manage.py migrate
-    python3 fitness_management_system/manage.py runserver
+    cd fitness_management_system
+    python3 manage.py runserver
   displayName: 'Install prerequisites'
 
 - script: |
