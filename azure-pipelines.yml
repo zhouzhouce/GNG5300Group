@@ -41,7 +41,6 @@ steps:
     pip install Django
     pip install unittest-xml-reporting
     cd fitness_management_system
-    python3 manage.py runserver
   displayName: 'Install prerequisites'
 
 - script: |
