@@ -7,3 +7,5 @@ django-celery-results
 django-celery-beat
 django-mysql
 psycopg2
+django-storages
+azure.storage.blob
