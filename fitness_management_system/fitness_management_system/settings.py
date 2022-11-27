@@ -24,7 +24,8 @@ SECRET_KEY = 'django-insecure-r8k-%gxj94_#06wgww8f(tl+wb8#!5xhlma4qshk2xg&z#)@oo
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['20.63.88.139', '127.0.0.1', 'fitnessmanagementsys.azurewebsites.net']
+ALLOWED_HOSTS = ['20.63.88.139', '127.0.0.1',
+                 'fitnessmanagementsys.azurewebsites.net']
 
 # Application definition
 
@@ -107,7 +108,7 @@ DATABASES = {
         "SSLMODE": "require",
         "OPTIONS": {
             'ssl': {
-                'ca': '/BaltimoreCyberTrustRoot.crt.pem',
+                'ca': 'static/BaltimoreCyberTrustRoot.crt.pem',
             },
         },
     },
@@ -150,6 +151,14 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
+
+STATICFILES_STORAGE = 'login.custom_azure.AzureStaticStorage'
+
+STATIC_LOCATION = "static"
+
+AZURE_ACCOUNT_NAME = "djangoj"
+AZURE_CUSTOM_DOMAIN = f'{AZURE_ACCOUNT_NAME}.blob.core.windows.net'
+STATIC_URL = f'https://{AZURE_CUSTOM_DOMAIN}/{STATIC_LOCATION}/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
