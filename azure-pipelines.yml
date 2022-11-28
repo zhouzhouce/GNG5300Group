@@ -63,7 +63,3 @@ steps:
 - task: CmdLine@2
   inputs:
     script: 'pip install -r requirements.txt'
-
-- task: CmdLine@2
-  inputs:
-    script: 'python3 fitness_management_system/manage.py runserver'
