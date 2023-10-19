@@ -1,5 +1,5 @@
 # GNG5300Group
-Fitness Manage System for GNG5300 course group project
+Fitness Management System for GNG5300 course group project
 
 ## Install Python related library
 ###  Execute following commands:
